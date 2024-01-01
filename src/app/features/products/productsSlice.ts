@@ -12,7 +12,14 @@ export const productsApiSlice = createApi({
         };
       },
     }),
+    getProduct: builder.query({
+      query: ({ id }) => {
+        return {
+          url: `/products/${id}`,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetProductListQuery } = productsApiSlice;
+export const { useGetProductListQuery, useGetProductQuery } = productsApiSlice;

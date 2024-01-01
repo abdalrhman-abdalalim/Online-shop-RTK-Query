@@ -3,6 +3,7 @@ import { IProduct } from "../interface";
 import { useAppDispatch } from "../app/store";
 import Button from "./ui/Button";
 import { addItemToCartAction } from "../app/features/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   product: IProduct;
@@ -11,8 +12,9 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { id, title, thumbnail, price } = product;
+  const navigate = useNavigate();
   return (
-    <div>
+    <div onClick={() => navigate(`/${id}`)}>
       <div className="relative flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
         <a
           className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
