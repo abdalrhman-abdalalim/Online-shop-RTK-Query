@@ -3,7 +3,8 @@ import { cartSelector } from "../app/features/cart/cartSlice";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const { cartItems } = useSelector(cartSelector);
+
+   const {cartItems} = useSelector(cartSelector)
 
   return (
     <header className="bg-white rounded-md shadow mb-10">

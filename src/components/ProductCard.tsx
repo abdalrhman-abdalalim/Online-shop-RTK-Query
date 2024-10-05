@@ -10,8 +10,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const dispatch = useAppDispatch();
-  const { id, title, thumbnail, price } = product;
+  const dispatch=  useAppDispatch();
+  const {id,price,qty,thumbnail,title}=product;
   const navigate = useNavigate();
   return (
     <div onClick={() => navigate(`/${id}`)}>
@@ -43,10 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               <span className="text-sm text-slate-900 line-through">$699</span>
             </p>
           </div>
-          <Button
-            fullWidth
-            onClick={() => dispatch(addItemToCartAction(product))}
-          >
+          <Button fullWidth onClick={() => dispatch(addItemToCartAction(product))}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="mr-2 h-6 w-6"

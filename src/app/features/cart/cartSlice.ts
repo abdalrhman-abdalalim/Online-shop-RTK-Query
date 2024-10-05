@@ -17,15 +17,12 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCartAction: (state, actionPayload: PayloadAction<IProduct>) => {
-      state.cartItems = addItemToShoppingCart(
-        state.cartItems,
-        actionPayload.payload
-      );
+      state.cartItems= addItemToShoppingCart(state.cartItems,actionPayload.payload);
     },
   },
 });
 
 export const { addItemToCartAction } = cartSlice.actions;
-export const cartSelector = ({ cart }: RootState) => cart;
+export const cartSelector = ({cart}:RootState) => cart;
 
 export default cartSlice.reducer;

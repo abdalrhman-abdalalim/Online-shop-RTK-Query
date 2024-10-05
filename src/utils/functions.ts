@@ -1,17 +1,14 @@
 import { IProduct } from "../interface";
 
-export const addItemToShoppingCart = (
-  cartItems: IProduct[],
-  product: IProduct
-) => {
-  const exists = cartItems.find((item) => item.id === product.id);
-  console.log(exists);
+export const addItemToShoppingCart = (cartItems:IProduct[],product:IProduct)=>{
 
-  if (exists) {
-    return cartItems.map((item) =>
-      item.id === product.id ? { ...item, qty: item.qty + 1 } : item
-    );
+  // If exits 
+  const exits = cartItems.find(item=>item.id===product.id);
+
+  if(exits){
+    return cartItems.map(item=>{
+      return item.id === product.id ? {...item, qty:item.qty + 1} : item;
+    });
   }
-
-  return [...cartItems, { ...product, qty: 1 }];
-};
+  return [...cartItems,{...product,qty:1}];
+}
