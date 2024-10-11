@@ -1,17 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import cartSlice from "./features/cart/cartSlice";
-import { productsApiSlice } from "./features/products/productsSlice";
-
+import { productsApi } from "./features/products/productSlicer";
 const store = configureStore({
   reducer: {
     cart: cartSlice,
-    [productsApiSlice.reducerPath]: productsApiSlice.reducer,
+    [productsApi.reducerPath]:productsApi.reducer
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat([
-      productsApiSlice.middleware,
-    ]),
+  middleware:getDefaultMiddleware=>getDefaultMiddleware({
+    serializableCheck:false
+  }).concat([productsApi.middleware])
 });
 
 export type RootState = ReturnType<typeof store.getState>;

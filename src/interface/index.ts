@@ -5,3 +5,9 @@ export interface IProduct {
   price: number;
   qty: number;
 }
+
+export interface ProductState  {
+    ProductList:IProduct[];
+    isLoading:boolean,
+    error:string
+}
